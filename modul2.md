@@ -8,5 +8,4 @@
   <img src="telkomuniv.png" alt="Logo Telkom University" width="200">
 </p>
 
-![telkomuniv](https://github.com/user-attachments/assets/3ab80966-605a-4127-af2c-cd0671873b6b)
 
