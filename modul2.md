@@ -1,17 +1,5 @@
-# Laporan Praktikum Algoritma dan Pemrograman 2
+<h1 align="center">LAPORAN PRAKTIKUM ALGORITMA DAN PEMROGRAMAN</h1>
+<h3 align="center">MODUL 2</h3>
+<h3 align="center">REVIEW STRUKTUR KONTROL</h3>
 
-## Modul 2
-
-### Implementasi Algoritma Pencarian Biner
-
-**Disusun Oleh:**
-* John Doe/12345
-* IF-A
-
-**Dosen Pengampu:**
-* Dr. Jane Smith
-
-**PROGRAM STUDI S1 TEKNIK INFORMATIKA**
-**FAKULTAS INFORMATIKA**
-**TELKOM UNIVERSITY PURWOKERTO**
-2024
+<p align="center">Meutya Azzahra Efendi</p>
