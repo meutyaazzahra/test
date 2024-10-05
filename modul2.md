@@ -48,7 +48,7 @@ Go diimplementasikan sebagai kompilator. Berikut adalah contoh sesi yang biasa d
 - Panggil shell atau terminal (program/utiliti cmd.exe di windows)
 - Masuk ke dalam (cd) folder program (normalnya ada di C:\Users\go\src\ atau yang sejenisnya)\
 - Kemudian panggil perintah go build atau go build file.go untuk mengkompilasi file.go
-- Jika gagal, akan muncul pesan eror yang sesuai, pelajari dengan baik pesan tersebut, perbaiki teks program summber, kemudian ulangi proses build-nya
+- Jika gagal, akan muncul pesan eror yang sesuai, pelajari dengan baik pesan tersebut, perbaiki teks program sumber, kemudian ulangi proses build-nya
 - Jika berhasil, maka pada folder tersebut akan dibuat program dengan nama yang sama dan diakhiri dengan .exe (untuk windows)
 - Panggil progra, eksekutabel tersebut dari terminal yang sama. Jangan memanggil program tersebut dengan mengklik eksekutabel tersebut dari folder karena program kalian hanya berbasis teks, bukan/belum dirancang dengan tampilan windows.
 
