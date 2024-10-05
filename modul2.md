@@ -72,3 +72,9 @@ contoh: menyebutkan nama found akan mengambil nilai tersimpan dalam memori untuk
 contoh: &found akan mendapatkan alamat memori untuk menyimpan data pada found
 - Jika variabel berisi alamat memori, prefiks * pada variabel tersebut akan memberikan nilai yang tersimpan dalam memori yang lokasinya disimpan dalam variabel tersebut
 contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem, karenanya *(&found) akan mendapatkan data dari lokasi memori variabel found berada, alias sama saja dengan menyebutkan langsung found 8=)
+  Operasi yang dapat dilakukan terhadap tipe data diatas adalah
+
+  <p align="center">
+  <img src="laprak2.png".width="200">
+  </p>
+  
