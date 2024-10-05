@@ -1,8 +1,9 @@
-<h1 align="center">LAPORAN PRAKTIKUM ALGORITMA DAN PEMROGRAMAN</h1>
-<h3 align="center">MODUL 2</h3>
-<h3 align="center">REVIEW STRUKTUR KONTROL</h3>
-![telkomuniv](https://github.com/user-attachments/assets/b4c8e4fc-1fc2-410c-a5fb-4afb59e1f3ef)
+<h1 align="center">LAPORAN PRAKTIKUM</h1>
+<h2 align="center">ALGORITMA DAN PEMROGRAMAN 2</h2>
 
+<h3 align="center">MODUL 1</h3>
+<h4 align="center">JUDUL</h4>
 
-
-<p align="center">Meutya Azzahra Efendi</p>
+<p align="center">
+  <img src="telkomuniv.png" alt="Logo Telkom University" width="200">
+</p>
