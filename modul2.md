@@ -1,7 +1,7 @@
 <h1 align="center">LAPORAN PRAKTIKUM ALGORITMA DAN PEMROGRAMAN</h1>
 <h3 align="center">MODUL 2</h3>
 <h3 align="center">REVIEW STRUKTUR KONTROL</h3>
-![image](https://github.com/user-attachments/assets/908278a6-a9bb-4210-91e1-98cd0489bede)
+![telyu doang](https://github.com/user-attachments/assets/14c577bb-3f81-407f-91ea-7f53924dba57)
 
 
 <p align="center">Meutya Azzahra Efendi</p>
