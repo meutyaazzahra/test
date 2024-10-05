@@ -24,3 +24,11 @@
     2024
 </p>
 
+
+## DASAR TEORI
+
+### 2.1 Struktur Program Go
+Dalam kerangka program yang ditulis dalam bahasa pemrograman Go, program utama selalu mempunyai dua komponen berikut:
+
+- package main merupakan penanda bahwa file ini berisi program utama
+- func main() berisi kode utama dari sebuah program Go
