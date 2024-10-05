@@ -32,3 +32,6 @@ Dalam kerangka program yang ditulis dalam bahasa pemrograman Go, program utama s
 
 - package main merupakan penanda bahwa file ini berisi program utama
 - func main() berisi kode utama dari sebuah program Go
+Komentar, bukan bagian dari kode program  dan dapat ditulis dimana saja di dalam program:
+- satu baris teks yang diawali dengan garis miring ganda (//) s.d. akhir baris, atau
+- beberapa baris teks yang dimulai dengan pasangan karakter '/*' dan di akhiri dengan '*/'.
