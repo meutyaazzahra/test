@@ -59,3 +59,16 @@ Semua proses terkait bahasa Go dilakukan melalui utilitas go. Beberapa opsi deng
 - go build file.go: mengkompilasi program sumber file.go saja
 - go fmt: membaca semua program sumber dalam folder dan mereformat penulisannya agar sesuai dengan standar penulisan program sumber Go.
 - go clean: membersihkan file-file dalam folder sehingga tersisa program sumbernya saja.
+
+### 2.2 Tipe Data dan Instruksi Dasar
+# 1. Data dan Variabel
+Variabel adalah nama dari suatu lokasi di memori, yang data dengan tipe tertentu dapat disimpan
+
+- Nama variabel dimulai dengan huruf dan dapat diikuti dengan sejumlah huruf, angka, atau garis bawah.
+- Tipe data yang umum tersedia adalah integer, real, boolean, karakter, dan string. Lihat tabel berikut ini untuk variasi tipe data yang disediakan dalam bahasa Go
+- Nilai data yang tersimpan dalam variabel dapat diperoleh dengan menyebutkan langsung nama variabelnnya
+contoh: menyebutkan nama found akan mengambil nilai tersimpan dalam memori untuk variabel found, pastinya.
+- Informasi alamat atau lokasi dari variabel dapat diperoleh dengan menambahkan prefiks & di depan nama variabel tersebut
+contoh: &found akan mendapatkan alamat memori untuk menyimpan data pada found
+- Jika variabel berisi alamat memori, prefiks * pada variabel tersebut akan memberikan nilai yang tersimpan dalam memori yang lokasinya disimpan dalam variabel tersebut
+contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem, karenanya *(&found) akan mendapatkan data dari lokasi memori variabel found berada, alias sama saja dengan menyebutkan langsung found 8=)
