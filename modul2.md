@@ -128,18 +128,6 @@ Kode Go di bawah menggunakan algoritma yang sangat mirip dengan algoritma di ata
 Telusuri program berikut dengan cara mengkompilasi dan mengeksekusi program. Silahkan masukkan data yang sesuai sebanyak yang diminta program. Perhatikan keluaran yang diperoleh. Coba terangkan apa sebenarnya yang dilakukan program tersebut?
 
 #### Source Code
-
-#### Screenshot Output
-
-#### Deskripsi Program
-
-# 2. Soal Study Case
-Tahun kabisat adalah tahun yang habis dibagi 400 atau habis dibagi 4 tetapi tidak habis dibagi 100. Buatlah sebuah program yang menerima input sebuah bilangan bulat dan memeriksa apakah bilangan tersebut merupakan tahun kabisat (true) atau bukan (false).
-(Contoh input/output, teks bergaris bawah adalah input dari user):
-
-![Screenshot 2024-10-06 194338](https://github.com/user-attachments/assets/bbd85471-8e96-48cc-a54a-0655c4d66031)
-
-#### Source Code
 ```go
 package main
 
@@ -166,7 +154,61 @@ func main() {
 ```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 223353](https://github.com/user-attachments/assets/8f21da29-cf2e-4a09-abcc-a7a9f629a85b)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan tiga string, kemudian mencetak output awal yang menampilkan ketiga string tersebut. Setelah itu, program melakukan pertukaran nilai di antara ketiga string: nilai string pertama menjadi nilai string kedua, nilai string kedua menjadi nilai string ketiga, dan nilai string ketiga menjadi nilai string pertama. Akhirnya, program mencetak output akhir dengan urutan string yang telah dipertukarkan. Program ini menunjukkan dasar-dasar pengolahan input dan output serta penggunaan variabel dalam bahasa Go.
+
+# 2. Soal Study Case
+Tahun kabisat adalah tahun yang habis dibagi 400 atau habis dibagi 4 tetapi tidak habis dibagi 100. Buatlah sebuah program yang menerima input sebuah bilangan bulat dan memeriksa apakah bilangan tersebut merupakan tahun kabisat (true) atau bukan (false).
+(Contoh input/output, teks bergaris bawah adalah input dari user):
+
+![Screenshot 2024-10-06 194338](https://github.com/user-attachments/assets/bbd85471-8e96-48cc-a54a-0655c4d66031)
+
+#### Source Code
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var tahun int
+	fmt.Println("Masukkan sebuah tahun: ")
+	fmt.Scanln(&tahun)
+
+	if (tahun%400 == 0) || (tahun%4 == 0 && tahun%100 != 0) {
+		fmt.Println(tahun, "adalah tahun kabiat: true")
+	} else {
+		fmt.Println(tahun, "bukan tahun kabisat: false")
+	}
+}
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var jarijari float64
+	fmt.Println("Masukkan jari-jari bola: ")
+	fmt.Scanln(&jarijari)
+
+	volume := (4.0 / 3.0) * math.Pi * math.Pow(jarijari, 3)
+	luas_permukaan := 4 * math.Pi * math.Pow(jarijari, 2)
+
+	fmt.Println("Volume bola dengan jari-jari %.2f adalah %.2f\n", jarijari, volume)
+	fmt.Println()
+	fmt.Println("luas_permukaan bola dengan jari-jari %.2f adalah %.2f\n", jarijari, luas_permukaan)
+}
+```
+#### Screenshot Output
+
+![Screenshot 2024-10-06 204341](https://github.com/user-attachments/assets/822941e7-3587-40a0-8419-178dd10fbed8)
+
+#### Deskripsi Program
+Program Go ini meminta input tahun dari pengguna dan menentukan apakah tahun tersebut adalah tahun kabisat. Jika tahun habis dibagi 400 atau habis dibagi 4 tetapi tidak habis dibagi 100, program mencetak bahwa tahun tersebut adalah tahun kabisat. Jika tidak, program mencetak bahwa tahun tersebut bukan tahun kabisat.
 
 # 3. Soal Study Case
 Buat program Bola yang menerima input jari-jari suatu bola (bilangan bulat). Tampilkan volume dan luas kulit bola. volume bola = 4/3 phi r`3 dan luas bola = 4 phi r`2 (phi = 3.14)
@@ -175,10 +217,33 @@ Buat program Bola yang menerima input jari-jari suatu bola (bilangan bulat). Tam
 ![Screenshot 2024-10-06 194750](https://github.com/user-attachments/assets/99a44ea0-7fd5-47f3-95d1-5cc430f55dc6)
 
 #### Source Code
+```go
+package main
 
+import (
+        "fmt"
+        "math"
+)
+
+func main() {
+        var jariJari int
+        fmt.Print("Jejari = ")
+        fmt.Scan(&jariJari)
+
+        // Hitung volume dan luas permukaan
+        volume := (4.0 / 3.0) * math.Pi * float64(jariJari*jariJari*jariJari)
+        luas := 4 * math.Pi * float64(jariJari*jariJari)
+
+        // Tampilkan hasil
+        fmt.Printf("Bola dengan jari-jari %d memiliki volume %.4f dan luas kulit %.4f\n", jariJari, volume, luas)
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 205426](https://github.com/user-attachments/assets/882cb3a1-b17e-4899-884a-5a6b6129b5e6)
+
 #### Deskripsi Program
+Program Go ini meminta input jari-jari bola dari pengguna, kemudian menghitung dan menampilkan volume serta luas permukaan bola. Volume dihitung dengan rumus \((\frac{4}{3}) \pi r^3\) dan luas permukaan dengan rumus \(4 \pi r^2\). Hasil ditampilkan dengan presisi empat desimal.
 
 ## III. Unguided
 
@@ -194,10 +259,35 @@ Lanjutan program di atas, sehingga temperatur dinyatakan juga dalam derajat ream
 ![Screenshot 2024-10-06 195412](https://github.com/user-attachments/assets/89458668-8f60-4726-967b-93e84dad3968)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import "fmt"
+
+func main() {
+	var celsius float64
+
+	fmt.Print("Masukkan suhu dalam derajat Celsius: ")
+	fmt.Scanln(&celsius)
+
+	fahrenheit := (celsius * 9 / 5) + 32
+	reamur := celsius * 4 / 5
+	kelvin := celsius + 273.15
+
+	fmt.Printf("Suhu dalam Fahrenheit: %.2f\n", fahrenheit)
+	fmt.Printf("Suhu dalam Reamur: %.2f\n", reamur)
+	fmt.Printf("Suhu dalam Kelvin: %.2f\n", kelvin)
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 210112](https://github.com/user-attachments/assets/73213f02-2c12-4d82-97fa-d65384346d7f)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan suhu dalam derajat Celsius, kemudian mengonversi suhu tersebut ke dalam tiga skala: Fahrenheit, Reamur, dan Kelvin.
 
 # 2. Soal Study Case
 Tipe karakter sebenarnya hanya apa yang tampak dalam tampilan. Di dalamnya tersimpan dalam bentuk biner 8 bit (byte) atau 32 bit (rune) saja. Buat program ASCII yang akan membaca 5 buat data integer dan mencetaknya dalam format karakter. Kemudian membaca 3 buah data karakter dan mencetak 3 buah karakter setelah karakter tersebut (menurut tabel ASCII).
@@ -207,10 +297,48 @@ keluaran juga terdiri dari dua baris. Baris pertama berisi 5 buah representasi k
 ![Screenshot 2024-10-06 200155](https://github.com/user-attachments/assets/86299545-b6da-48b0-98f5-27e863403ffa)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import "fmt"
+
+func main() {
+	var numbers [5]int
+	var chars [3]byte
+
+	fmt.Println("Masukkan 5 buah data integer (32-127):")
+	for i := 0; i < 5; i++ {
+		fmt.Scan(&numbers[i])
+	}
+
+	fmt.Println("Masukkan 3 buah karakter:")
+	for i := 0; i < 3; i++ {
+		fmt.Scanf("%c", &chars[i])
+	}
+
+	fmt.Print("Karakter dari nilai integer: ")
+	for _, num := range numbers {
+		fmt.Printf("%c", num)
+	}
+	fmt.Println()
+
+	fmt.Print("Karakter setelahnya: ")
+	for _, char := range chars {
+		fmt.Printf("%c", char+1)
+	}
+	fmt.Println()
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 225302](https://github.com/user-attachments/assets/912cf3ef-a24e-4a8a-b8ca-ccc03f85ba7d)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan lima angka integer (dalam rentang 32-127) dan tiga karakter. 
+Setelah menerima input, program mencetak karakter yang sesuai dengan nilai integer yang dimasukkan. Selanjutnya, program juga mencetak karakter yang dimasukkan, tetapi dengan nilai ASCII yang ditambahkan satu. Dengan demikian, karakter yang dihasilkan adalah hasil dari penambahan satu pada setiap karakter yang dimasukkan.
 
 # 3. Soal Study Case
 Siswa kelas IPA di salah satu sekolah menengah atas di Indonesia sedang mengadakan praktikum kimia. Di setiap percobaan akan menggunakan 4 tabung reaksi, yang mana susunan warna cairan disetiap tabung akan menentukan hasil percobaan. Siswa diminta untuk mencatat hasil percobaan tersebut. Percobaan dikatakan berhasil apabila susunan warna zar cair pada gelas 1 hingga gelas 4 secara berurutan adalah 'merah', 'kuning', 'hijau', dan 'ungu' selama 5 kali percobaan berulang.
@@ -220,10 +348,61 @@ Perhatikan contoh sesi interaksi program seperti dibawah ini (teks bergaris bawa
 ![Screenshot 2024-10-06 200838](https://github.com/user-attachments/assets/f9794afe-1222-45a3-a73d-5dad241097de)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	// Urutan warna yang benar
+	correctOrder := []string{"merah", "kuning", "hijau", "ungu"}
+
+	// Membaca input untuk 5 percobaan
+	reader := bufio.NewReader(os.Stdin)
+	var hadError bool
+
+	for i := 1; i <= 5; i++ {
+		fmt.Printf("Percobaan %d: ", i)
+
+		// Membaca input dari pengguna
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		// Memisahkan input berdasarkan spasi
+		colors := strings.Split(input, " ")
+
+		// Mengecek apakah urutan warna sesuai
+		for j := 0; j < 4; j++ {
+			if colors[j] != correctOrder[j] {
+				hadError = true
+				break
+			}
+		}
+	}
+
+	// Menampilkan hasil
+	if !hadError {
+		fmt.Println("BERHASIL: true")
+	} else {
+		fmt.Println("BERHASIL: false")
+	}
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 213046](https://github.com/user-attachments/assets/89e5463b-ca65-4f2a-bc9a-2fa61f7ca8a5)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan urutan warna dalam lima percobaan. Warna yang benar adalah "merah", "kuning", "hijau", dan "ungu". 
+Setelah setiap input, program memeriksa apakah urutan warna sesuai dengan yang benar. Jika semua percobaan sesuai, program mencetak "BERHASIL: true"; jika tidak, program mencetak "BERHASIL: false".
 
 # 4. Soal Study Case
 Suatu pita (string) berisi kumpulan nama-nama bunga yang dipisahkan oleh spasi dan '-', contoh pita diilustrasikan seperti berikut ini.
@@ -240,10 +419,63 @@ Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris baw
 ![Screenshot 2024-10-06 201523](https://github.com/user-attachments/assets/3f701357-a41e-47a7-8621-396faa43d448)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	// Variabel pita digunakan untuk menyimpan daftar nama bunga
+	var pita string
+	var TotalBunga int
+
+	// Menggunakan scanner untuk membaca input dari pengguna
+	scanner := bufio.NewScanner(os.Stdin)
+
+	fmt.Print("Masukkan nama bunga dan ketik 'SELESAI' untuk mengakhiri. :\n")
+
+	for {
+		TotalBunga++
+		fmt.Printf("Bunga %d: ", TotalBunga)
+
+		// Membaca input dari pengguna
+		scanner.Scan()
+		input := scanner.Text()
+
+		// Cek jika pengguna mengetikkan "SELESAI" maka program akan berhenti
+		if strings.ToUpper(input) == "SELESAI" {
+			TotalBunga-- // Mengurangi jumlah bunga karena input "SELESAI" tidak dihitung
+			break
+		}
+
+		// Menambahkan nama bunga ke pita 
+		if pita == "" {
+			pita = input
+		} else {
+			pita += " - " + input
+		}
+	}
+
+	// Menampilkan hasil akhir pita dan jumlah bunga yang dimasukkan
+	fmt.Println("Pita:", pita)
+	fmt.Println("Total bunga:", TotalBunga )
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 214730](https://github.com/user-attachments/assets/1ce5b35f-eb4f-4f50-98a0-23464df9472c)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan nama-nama bunga secara berurutan hingga mereka mengetik "SELESAI" untuk mengakhiri input. 
+Setiap nama bunga yang dimasukkan disimpan dalam variabel `pita`, dan jumlah total bunga yang dimasukkan dihitung. Setelah input selesai, program menampilkan daftar nama bunga yang dimasukkan dan total jumlah bunga.
 
 # 5. Soal Study Case
 Setiap hari Pak Andi membawa bayak barang belanjaan dari pasar dengan mengendarai sepeda motor. Barang belanjaan tersebut dibawa dalam kantong terpal di kiri-kanan motor. Sepeda motor tidak akan oleng jika selisih berat barang di kedua kantong sisi tidak lebih dari 9 kg.
@@ -258,10 +490,47 @@ Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris baw
 ![Screenshot 2024-10-06 202351](https://github.com/user-attachments/assets/013bd445-cd40-4cb4-895c-e36a54f9f0bc)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import "fmt"
+
+func main() {
+	for {
+		var berat1, berat2 float64
+
+		fmt.Print("Masukkan berat belanjaan di kedua kantong: ")
+		_, err := fmt.Scan(&berat1, &berat2)
+		if err != nil {
+			fmt.Println("Input tidak valid.")
+			return
+		}
+
+		if berat1+berat2 > 150 || berat1 < 0 || berat2 < 0 {
+			fmt.Println("Proses selesai.")
+			break
+		}
+
+		selisih := berat1 - berat2
+		if selisih < 0 {
+			selisih = -selisih
+		}
+		akanOleng := selisih >= 9
+
+		fmt.Printf("Sepeda motor pak Andi akan oleng: %t\n",akanOleng)
+	}
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 215319](https://github.com/user-attachments/assets/ef1370ed-056f-4926-9461-4b2ec7d3b79e)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan berat belanjaan dalam dua kantong secara berulang. 
+Jika total berat melebihi 150 kg atau ada berat negatif, program akan menghentikan proses. Jika tidak, program menghitung selisih berat antara kedua kantong dan menentukan apakah sepeda motor pak Andi akan oleng berdasarkan selisih tersebut (jika selisih ≥ 9 kg). Hasilnya ditampilkan sebagai boolean.
 
 # 6. Soal Study Case
 Diberikan sebuah persamaan sebagai berikut
@@ -283,7 +552,77 @@ Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris baw
 ![Screenshot 2024-10-06 203037](https://github.com/user-attachments/assets/f7362a96-fc04-4ec1-9465-241632320ac9)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
 
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var k float64
+
+	fmt.Print("Masukkan nilai K: ")
+	fmt.Scan(&k)
+
+	fk := math.Pow(4*k+2, 2) / ((4*k + 1) * (4*k + 3))
+
+	fmt.Printf("Nilai f(k) = %.10f\n",fk)
+}
+```
+#### setelah dimodifikasi
+```go
+// Meutya Azzahra Efendi
+// IF-11-06
+// 2311102166
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var k int
+
+	for {
+		fmt.Print("Masukkan nilai K: ")
+		_, err := fmt.Scan(&k)
+		if err != nil {
+			fmt.Println("Input tidak valid.")
+			return
+		}
+
+		if k < 0 {
+			fmt.Println("Nilai K harus positif.")
+			continue
+		}
+
+		akarDua := 0.0
+		for i := 0; i <= k; i++ {
+			pembilang := math.Pow(4*float64(i)+2, 2)
+			penyebut := (4*float64(i) + 1) * (4*float64(i) + 3)
+			akarDua += pembilang / penyebut
+		}
+
+		fmt.Printf("Nilai akar 2 = %.10f\n",akarDua)
+	}
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-06 222602](https://github.com/user-attachments/assets/d1bfc51b-f7e3-407f-a35a-3f0cced36aba)
+
+setelah dimodifikasi
+
+![Screenshot 2024-10-06 222658](https://github.com/user-attachments/assets/83269fa3-d44c-42b6-ae83-1da5e338c064)
+
 #### Deskripsi Program
+Program Go ini meminta pengguna untuk memasukkan nilai `K`, kemudian menghitung nilai `f(k)` menggunakan rumus matematika yang ditentukan. Hasil perhitungan ditampilkan dengan presisi 10 desimal. Program ini berfungsi untuk melakukan evaluasi fungsi matematika berdasarkan input yang diberikan.
+
+setelah dimodifikasi
+Program Go ini meminta pengguna untuk memasukkan nilai `K` dan menghitung nilai perkiraan akar dua berdasarkan rumus tertentu. Program melakukan validasi untuk memastikan `K` adalah angka positif. Selama loop, program menghitung nilai berdasarkan rumus yang melibatkan penjumlahan pecahan hingga `K` dan menampilkan hasilnya dengan presisi 10 desimal. Program ini terus meminta input hingga pengguna memilih untuk menghentikannya.
