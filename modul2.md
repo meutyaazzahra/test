@@ -77,4 +77,5 @@ contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem, ka
   <p align="center">
   <img src="ssmaterigo.png".width="200">
   </p>
-  
+  <img width="318" alt="ssmaterigo" src="https://github.com/user-attachments/assets/e8aaa0ee-e126-4a17-8b90-85c978cf2ff9">
+
