@@ -82,7 +82,9 @@ Contoh:
     - Casting, tipe (data), mengubah tipe dari data yang diberikan ke tipe yang diinginkan
     - Memanfaatkan fungsi Sprint dan Sscan dari paket fmt.
     - Memanfaatkan fungsi-fungsi dalam paket strconv, seperti Atol, Itoa, dan ParseBool. Lihat lampiran berikut untuk contoh penggunaan.
-      ![Screenshot 2024-10-06 163905](https://github.com/user-attachments/assets/db51abfc-c14b-4d8a-a3f9-c9bbdb16beab)
+
+       ![Screenshot 2024-10-06 163905](https://github.com/user-attachments/assets/db51abfc-c14b-4d8a-a3f9-c9bbdb16beab)
+
 - Variabel harus dideklarasikan dulu sebelum digunakan. Variabel juga harus diinisialisasi dulu (diisi data) agar nilai yang tersimpan diketahui dengan jelas dan eksekusi algoritma menjadi terprediksi. Dalam bahasa Go, variabel yang tidak diinisialisasi lebih dulu otomatis diisi dengan nilai default yang ekuivalen dengan bit 0.
     * Nilai 0 untuk bilangan integer
     * 0.0E+0 untuk bilangan real
@@ -90,6 +92,7 @@ Contoh:
     * karakter NUL (lihat tabel ASCII) untuk karakter
     * ''''(string kosong, string dengan panjang 0) untuk string
     * nill untuk alamat memori
+   
     ![Screenshot 2024-10-06 164325](https://github.com/user-attachments/assets/37e16ac3-e7fd-445f-9d19-24cd640aee6c)
 
 # 2. Instruksi Dasar
