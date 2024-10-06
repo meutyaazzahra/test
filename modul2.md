@@ -74,14 +74,16 @@ contoh: &found akan mendapatkan alamat memori untuk menyimpan data pada found
 contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem, karenanya *(&found) akan mendapatkan data dari lokasi memori variabel found berada, alias sama saja dengan menyebutkan langsung found 8=)
 - Operasi yang dapat dilakukan terhadap tipe data diatas adalah
 <img width="318" alt="ssmaterigo" src="https://github.com/user-attachments/assets/e8aaa0ee-e126-4a17-8b90-85c978cf2ff9">
+
 Contoh:
 ![Screenshot 2024-10-06 163404](https://github.com/user-attachments/assets/fa35f401-47b4-4ee6-b5dd-b8c233ea193c)
+
 - Bahasa Go menganut kesesuaian tipe data yang ketat. Tipe data yang berbeda tidak boleh dicampur dalam satu ekspresi, bahkan tipe data masih yang sejenis, misalnya masih sama-sama integer (int dan int32). Untuk menyesuaikan tipe data, ada beberapa cara yang dapat dilakukan:
     - Casting, tipe (data), mengubah tipe dari data yang diberikan ke tipe yang diinginkan
     - Memanfaatkan fungsi Sprint dan Sscan dari paket fmt.
     - Memanfaatkan fungsi-fungsi dalam paket strconv, seperti Atol, Itoa, dan ParseBool. Lihat lampiran berikut untuk contoh penggunaan.
       ![Screenshot 2024-10-06 163905](https://github.com/user-attachments/assets/db51abfc-c14b-4d8a-a3f9-c9bbdb16beab)
-  - Variabel harus dideklarasikan dulu sebelum digunakan. Variabel juga harus diinisialisasi dulu (diisi data) agar nilai yang tersimpan diketahui dengan jelas dan eksekusi algoritma menjadi terprediksi. Dalam bahasa Go, variabel yang tidak diinisialisasi lebih dulu otomatis diisi dengan nilai default yang ekuivalen dengan bit 0.
+- Variabel harus dideklarasikan dulu sebelum digunakan. Variabel juga harus diinisialisasi dulu (diisi data) agar nilai yang tersimpan diketahui dengan jelas dan eksekusi algoritma menjadi terprediksi. Dalam bahasa Go, variabel yang tidak diinisialisasi lebih dulu otomatis diisi dengan nilai default yang ekuivalen dengan bit 0.
     * Nilai 0 untuk bilangan integer
     * 0.0E+0 untuk bilangan real
     * false untuk boolean
