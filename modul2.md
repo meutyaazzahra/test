@@ -91,7 +91,7 @@ Contoh:
     ![Screenshot 2024-10-06 164325](https://github.com/user-attachments/assets/37e16ac3-e7fd-445f-9d19-24cd640aee6c)
 
 # 2. Instruksi Dasar
- ![Screenshot 2024-10-06 173558](https://github.com/user-attachments/assets/be3fb07e-6c08-44e3-9fe2-33ca22efdf25)
+![Screenshot 2024-10-06 173558](https://github.com/user-attachments/assets/be3fb07e-6c08-44e3-9fe2-33ca22efdf25)
 ![Screenshot 2024-10-06 173623](https://github.com/user-attachments/assets/efc8cdf9-6eb4-4f51-bd7b-0dbfade3f02e)
 
 # 3. Konstanta Simbolik
@@ -99,19 +99,19 @@ Konstanta dapat diberi nama untuk memudahkan mengingat maksud dan manfaat dari n
 ![Screenshot 2024-10-06 173830](https://github.com/user-attachments/assets/c2638880-b2e4-43b5-8de3-c560413dd8eb)
 
 ### 2.3 Struktur Kontrol Perulangan
-Go hanhya mempunyai kata kunci for untuk semua jenis perulangan yang kita pelajari dalam kondisi notasi algoritma. Dua bentuk yang kita gunakan disini adalah struktur while-loop dan repeat-until.
+Go hanya mempunyai kata kunci for untuk semua jenis perulangan yang kita pelajari dalam kondisi notasi algoritma. Dua bentuk yang kita gunakan disini adalah struktur while-loop dan repeat-until.
 ![Screenshot 2024-10-06 180629](https://github.com/user-attachments/assets/9246f2bd-9794-451c-a2e7-a17bdcaf8d3c)
 Dalam konsep pemrograman terstruktur, setiap rancangan algoritma harus memenuhi syarat satu pintu masuk dan satu pintu keluar. Karena itu tidaklah diperkenankan untuk membuat program sumber yang mempunyai struktur loop yang mempunyai pintu keluar lebih dari satu, seperti:
 - Satu pintu keluar dari kondisi for dan satu lagi dari instruksi if-break
 - Atau mempunyai isntruksi if-break yang lebih dari satu
 1. Bentuk While-Loop
    Bentuk While-Loop memastikan setiap kali memasuki loop, ada kondisi yang harus terpenuhi (benar/true). Ini juga berarti saat keluar dari loop, maka nilai kondisi tersebut pasti salah/false!
- ![Screenshot 2024-10-06 181927](https://github.com/user-attachments/assets/3d741a47-88e5-46b8-a426-592b376e5637)
- ![Screenshot 2024-10-06 182025](https://github.com/user-attachments/assets/2d48f109-8443-4ef8-8ae8-eade308307b0)
+![Screenshot 2024-10-06 181927](https://github.com/user-attachments/assets/3d741a47-88e5-46b8-a426-592b376e5637)
+![Screenshot 2024-10-06 182025](https://github.com/user-attachments/assets/2d48f109-8443-4ef8-8ae8-eade308307b0)
 
-2. Bentuk Repeat-Until
+3. Bentuk Repeat-Until
    Bentuk repeat-until di perulangan dilakukan terus menerus sampai kondisi keluar terpenuhi. Artinya selama kondisi belum terpenuhi (salah/false) maka perulangan akan terus dilakukan. Pada saat keluar dari loop maka nilai kondisi pasti benar/true!
- ![Screenshot 2024-10-06 182535](https://github.com/user-attachments/assets/7ac3e011-3004-476d-812b-a6cd1d06698f)
+![Screenshot 2024-10-06 182535](https://github.com/user-attachments/assets/7ac3e011-3004-476d-812b-a6cd1d06698f)
 Perhatian: Karena pernyataan kondisi ada di bawah pada bentuk repeat-until, apapun kondisinya, badan loop pasti akan pernah dieksekusi minimum satu kali.
 Kode Go di bawah menggunakan algoritma yang sangat mirip dengan algoritma di atas, dengan perbedaan pada digunakannya bentuk while-loop. Umumnya keluaran kedua algoritma sama, kecuali saat maxF diisialisasi dengan nilai 0 atau lebih kecil.
 ![Screenshot 2024-10-06 183256](https://github.com/user-attachments/assets/9f9fbb25-53f1-4265-ae2e-4e91b9264be1)
