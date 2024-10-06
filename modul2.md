@@ -140,7 +140,30 @@ Tahun kabisat adalah tahun yang habis dibagi 400 atau habis dibagi 4 tetapi tida
 ![Screenshot 2024-10-06 194338](https://github.com/user-attachments/assets/bbd85471-8e96-48cc-a54a-0655c4d66031)
 
 #### Source Code
+```go
+package main
 
+import "fmt"
+
+func main() {
+	var (
+		satu, dua, tiga string
+		temp            string
+	)
+	fmt.Println("Masukan input string: ")
+	fmt.Scanln(&satu)
+	fmt.Println("Masukan input string: ")
+	fmt.Scanln(&dua)
+	fmt.Println("Masukan input string: ")
+	fmt.Scanln(&tiga)
+	fmt.Println("Output awal = " + satu + " " + dua + " " + tiga)
+	temp = satu
+	satu = dua
+	dua = tiga
+	tiga = temp
+	fmt.Println("Output akhir = " + satu + " " + dua + " " + tiga)
+}
+```
 #### Screenshot Output
 
 #### Deskripsi Program
