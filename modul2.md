@@ -123,3 +123,144 @@ Kode Go di bawah menggunakan algoritma yang sangat mirip dengan algoritma di ata
 ![Screenshot 2024-10-06 183256](https://github.com/user-attachments/assets/9f9fbb25-53f1-4265-ae2e-4e91b9264be1)
 
 ## II. GUIDED
+
+# 1. Soal Study Case
+Telusuri program berikut dengan cara mengkompilasi dan mengeksekusi program. Silahkan masukkan data yang sesuai sebanyak yang diminta program. Perhatikan keluaran yang diperoleh. Coba terangkan apa sebenarnya yang dilakukan program tersebut?
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 2. Soal Study Case
+Tahun kabisat adalah tahun yang habis dibagi 400 atau habis dibagi 4 tetapi tidak habis dibagi 100. Buatlah sebuah program yang menerima input sebuah bilangan bulat dan memeriksa apakah bilangan tersebut merupakan tahun kabisat (true) atau bukan (false).
+(Contoh input/output, teks bergaris bawah adalah input dari user):
+
+![Screenshot 2024-10-06 194338](https://github.com/user-attachments/assets/bbd85471-8e96-48cc-a54a-0655c4d66031)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 3. Soal Study Case
+Buat program Bola yang menerima input jari-jari suatu bola (bilangan bulat). Tampilkan volume dan luas kulit bola. volume bola = 4/3 phi r`3 dan luas bola = 4 phi r`2 (phi = 3.14)
+(contoh input/output, teks bergaris bawah adalah input dari user):
+
+![Screenshot 2024-10-06 194750](https://github.com/user-attachments/assets/99a44ea0-7fd5-47f3-95d1-5cc430f55dc6)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+## III. Unguided
+
+# 1. Soal Study Case
+Dibaca nilai temperatur dalam derajat celcius. Nyatakan temperatur tersebut dalam Fahrenheit
+(contoh input/output, teks bergaris bawah adalah input dari user):
+
+![Screenshot 2024-10-06 195141](https://github.com/user-attachments/assets/3e9fff25-9d54-40f9-af6a-61f0e4f96ac8)
+
+Lanjutan program di atas, sehingga temperatur dinyatakan juga dalam derajat reamur dan kelvin.
+(contoh input/output, teks bergaris bawah adalah input dari user):
+
+![Screenshot 2024-10-06 195412](https://github.com/user-attachments/assets/89458668-8f60-4726-967b-93e84dad3968)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 2. Soal Study Case
+Tipe karakter sebenarnya hanya apa yang tampak dalam tampilan. Di dalamnya tersimpan dalam bentuk biner 8 bit (byte) atau 32 bit (rune) saja. Buat program ASCII yang akan membaca 5 buat data integer dan mencetaknya dalam format karakter. Kemudian membaca 3 buah data karakter dan mencetak 3 buah karakter setelah karakter tersebut (menurut tabel ASCII).
+Masukkan terdiri dari dua baris. Baris pertama berisi 5 buah data integer. Data integer mempunyai nilai antara 32 s.d. 127. Baris kedua berisi 3 buah karakter yang berdampingan satu dengan yang lain (tanpa dipisahkan spasi).
+keluaran juga terdiri dari dua baris. Baris pertama berisi 5 buah representasi karakter dari data yang diberikan, yang berdampingan satu dengan lain, tanpa dipisahkan spasi. Baris kedua berisi 3 buah karakter (juga tidak dipisahkan oleh spasi).
+
+![Screenshot 2024-10-06 200155](https://github.com/user-attachments/assets/86299545-b6da-48b0-98f5-27e863403ffa)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 3. Soal Study Case
+Siswa kelas IPA di salah satu sekolah menengah atas di Indonesia sedang mengadakan praktikum kimia. Di setiap percobaan akan menggunakan 4 tabung reaksi, yang mana susunan warna cairan disetiap tabung akan menentukan hasil percobaan. Siswa diminta untuk mencatat hasil percobaan tersebut. Percobaan dikatakan berhasil apabila susunan warna zar cair pada gelas 1 hingga gelas 4 secara berurutan adalah 'merah', 'kuning', 'hijau', dan 'ungu' selama 5 kali percobaan berulang.
+Buatlah sebuah program yang menerima yang menerima input berupa warna dari ke 4 gelas reaksi sebanyak 5 kali percobaan. Kemudian program akan menampilkan true apabila urutan warna sesuai dengan informasi yang diberikan pada paragraf sebelumnya dan false untuk urutan warna lainnya. 
+Perhatikan contoh sesi interaksi program seperti dibawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 200838](https://github.com/user-attachments/assets/f9794afe-1222-45a3-a73d-5dad241097de)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 4. Soal Study Case
+Suatu pita (string) berisi kumpulan nama-nama bunga yang dipisahkan oleh spasi dan '-', contoh pita diilustrasikan seperti berikut ini.
+Pita: mawar-melati-tulip-teratai-kamboja-anggrek
+Buatlah sebuah program yang menerima input sebuah bilangan bulat positif dan tidak nol N, kemudian program akan meminta input berupa nama bunga secara berulang sebanyak N kali dan nama tersebut disimpan ke dalam pita.
+(petunjuk: gunakan operasi penggabungan string dengan operator "+")
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 201331](https://github.com/user-attachments/assets/db0ec3b7-9879-4dff-aac0-ba76313c2a8a)
+
+Modifikasi program sebelumnya, proses input akan berhenti apabila user mengetikkan "SELESAI". Kemudian tampilan isi pita beserta banyaknya bunga yang ada di dalam pita.
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 201523](https://github.com/user-attachments/assets/3f701357-a41e-47a7-8621-396faa43d448)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 5. Soal Study Case
+Setiap hari Pak Andi membawa bayak barang belanjaan dari pasar dengan mengendarai sepeda motor. Barang belanjaan tersebut dibawa dalam kantong terpal di kiri-kanan motor. Sepeda motor tidak akan oleng jika selisih berat barang di kedua kantong sisi tidak lebih dari 9 kg.
+Buatlah program Pak Andi yang menerima input dua buah bilangan real positif yang menyatakan berat total masing-masing isi kantong terpal. Program akan terus meminta input bilangan tersebut hingga salah satu kantong terpal berisi 9 kg atau lebih.
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 202136](https://github.com/user-attachments/assets/faae7476-1b49-4a17-8209-15a5776f0dc8)
+
+Pada modifikasi program tersebut, program akan menampilkan true jika selisih kedua isi kantong lebih dari atau sama dengan 9 kg. Program berhenti memproses apabila total berat isi kedua kantong melebihi 150 kg atau salah satu kantong beratnya negatif.
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 202351](https://github.com/user-attachments/assets/013bd445-cd40-4cb4-895c-e36a54f9f0bc)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
+
+# 6. Soal Study Case
+Diberikan sebuah persamaan sebagai berikut
+
+![Screenshot 2024-10-06 202508](https://github.com/user-attachments/assets/4200441c-af3e-4e9e-9751-4ec75cb1ec49)
+
+Buatlah sebuah program yang menerima input sebuah bilangan sebagai K, kemudian menghitung dan menampilkan nilai f(K) sesuai persamaa di atas.
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 202710](https://github.com/user-attachments/assets/238e9c84-144d-4dd2-a5d8-1caf9cde5f50)
+
+√2 merupakan bilangan irasional. Meskipun demikian, nilai tersebut dapat dihampiri dengan rumus berikut:
+
+![Screenshot 2024-10-06 202838](https://github.com/user-attachments/assets/bd04ec05-84db-4d91-b6af-f26a298d031d)
+
+Modifikasi program sebelumnya yang menerima input integer K dan menghitung √2 untuk K tersebut. Hampiran √2 dituliskan dalam ketelitian 10 angka di belakang koma.  
+Perhatikan contoh sesi interaksi program seperti di bawah ini (teks bergaris bawah adalah input/read):
+
+![Screenshot 2024-10-06 203037](https://github.com/user-attachments/assets/f7362a96-fc04-4ec1-9465-241632320ac9)
+
+#### Source Code
+
+#### Screenshot Output
+
+#### Deskripsi Program
