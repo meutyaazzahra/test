@@ -76,6 +76,7 @@ contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem, ka
 <img width="318" alt="ssmaterigo" src="https://github.com/user-attachments/assets/e8aaa0ee-e126-4a17-8b90-85c978cf2ff9">
 
 Contoh:
+
 ![Screenshot 2024-10-06 163404](https://github.com/user-attachments/assets/fa35f401-47b4-4ee6-b5dd-b8c233ea193c)
 
 - Bahasa Go menganut kesesuaian tipe data yang ketat. Tipe data yang berbeda tidak boleh dicampur dalam satu ekspresi, bahkan tipe data masih yang sejenis, misalnya masih sama-sama integer (int dan int32). Untuk menyesuaikan tipe data, ada beberapa cara yang dapat dilakukan:
