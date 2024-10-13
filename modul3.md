@@ -98,6 +98,8 @@ func permutasi(n, r int) int {
 
 #### Deskripsi Program
 
+Program ini ditulis dalam bahasa Go untuk menghitung permutasi dari dua bilangan bulat yang dimasukkan oleh pengguna. Setelah membandingkan kedua angka, program menghitung permutasi menggunakan rumus \( P(n, r) = \frac{n!}{(n-r)!} \) dan menampilkan hasilnya. Fungsi faktorial digunakan untuk menghitung nilai yang diperlukan dalam perhitungan.
+
 # 2. Soal study case
 Buatlah program untuk menghitung luas permukaan alas dan volume balok
 
@@ -136,6 +138,8 @@ func main() {
 ![Screenshot 2024-10-13 191332](https://github.com/user-attachments/assets/6e526ec3-295e-4a2f-8a70-6ab7418659fd)
 
 #### Deskripsi Program
+
+Program Go ini menghitung luas permukaan dan volume balok. Pengguna memasukkan panjang, lebar, dan tinggi.
 
 ## III. UNGUIDED
 
@@ -208,7 +212,9 @@ func main() {
 
 #### Deskripsi Program
 
-Program ini ditulis dalam bahasa Go untuk menghitung permutasi dari dua bilangan bulat yang dimasukkan oleh pengguna. Setelah membandingkan kedua angka, program menghitung permutasi menggunakan rumus \( P(n, r) = \frac{n!}{(n-r)!} \) dan menampilkan hasilnya. Fungsi faktorial digunakan untuk menghitung nilai yang diperlukan dalam perhitungan.
+Program ini ditulis dalam bahasa Go untuk menghitung permutasi dan kombinasi berdasarkan empat bilangan bulat yang dimasukkan pengguna: `a`, `b`, `c`, dan `d`. 
+
+Jika `a` lebih besar atau sama dengan `c` dan `b` lebih besar atau sama dengan `d`, program akan menghitung dan menampilkan permutasi dan kombinasi untuk pasangan `(a, c)` dan `(b, d)`. Jika syarat tidak terpenuhi, program akan menampilkan pesan kesalahan. Program ini menggabungkan fungsi faktorial, permutasi, dan kombinasi dalam satu aplikasi.
 
 # 2. Soal study case
 Diberikan tiga buah fungsi yaitu 
@@ -272,6 +278,14 @@ func main() {
 ![Screenshot 2024-10-13 190557](https://github.com/user-attachments/assets/6ea93a84-9f4b-47d8-a77f-e356b868498c)
 
 #### Deskripsi Program
+
+Program Go ini melakukan komposisi fungsi matematis. 
+
+1. **Fungsi**: Terdapat tiga fungsi dasar (`f`, `g`, `h`) dan tiga fungsi komposisi (`fogoh`, `gohof`, `hofog`).
+2. **Input**: Pengguna memasukkan tiga bilangan bulat: `a`, `b`, dan `c`.
+3. **Output**: Program mencetak hasil komposisi fungsi untuk nilai `a`, `b`, dan `c`.
+
+Program ini menunjukkan penerapan komposisi fungsi dalam pemrograman.
 
 # 3. soal study case
 [Lingkaran] Suatu lingkaran didefinisikan dengan koordinat titik pusat (cx, cy) dengan radius r, apabila diberikan dua buah lingkaran, maka tentukan posisi sebuah titik sembarang (x, y) berdasarkan dua lingkaran tersebut.
@@ -340,3 +354,15 @@ func main() {
 ![Screenshot 2024-10-13 191201](https://github.com/user-attachments/assets/9c078035-8648-4cb6-a369-4aedd3721974)
 
 #### Deskripsi Program
+
+Program Go ini menentukan posisi suatu titik relatif terhadap dua lingkaran.
+
+1. **Fungsi**:
+   - `jarak` menghitung jarak antara dua titik.
+   - `didalam` memeriksa apakah titik berada di dalam lingkaran.
+
+2. **Input**: Pengguna memasukkan pusat dan radius untuk dua lingkaran, serta koordinat titik.
+
+3. **Output**: Program mencetak apakah titik tersebut berada di dalam kedua lingkaran, salah satu, atau di luar keduanya.
+
+Secara keseluruhan, program ini menggunakan perhitungan jarak untuk mengevaluasi posisi titik terhadap lingkaran.
