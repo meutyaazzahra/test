@@ -87,9 +87,113 @@ Keluaran berupa string pesan M beserta jenis pesannya, yaitu error, warning, ata
 
 #### Source Code
 
+```go
+package main
+import "fmt"
+
+func main(){
+	var bilangan int
+	var pesan string
+	fmt.Scan(&bilangan, &pesan)
+	cetakPesan(pesan, bilangan)
+}
+
+func cetakPesan(M string, flag int){
+	var jenis string =""
+	if flag == 0 {
+		jenis = "error"
+	}else if flag == 1 {
+		jenis = "warning"
+	}else if flag == 2 {
+		jenis = "informasi"
+	}
+	fmt.Println(M, jenis)
+}
+```
+
 #### Screenshot Output
 
+![Screenshot 2024-10-20 200415](https://github.com/user-attachments/assets/b2fe411c-2da0-4b98-92a5-49aadefa99a5)
+
 #### Deskripsi Program
+Program ini menerima input bilangan dan pesan, lalu mencetak pesan dengan jenis sesuai bilangan: `0` untuk "error", `1` untuk "warning", dan `2` untuk "informasi".
+
+# 2. Soal study case
+Buatlah program sederhana yang mengirimkan email pemberitahuan kepada pengguna yang baru terdaftar. Setiap pengguna memiliki alamat email, dan program harus mencetak pesan bahwa email berhasil dikirim ke masing-masing alamat.
+
+#### Source Code
+```go
+package main
+import "fmt"
+
+// Procedure untuk mengirim email pemberitahuan
+func sendEmailNotification(email string){
+	fmt.Printf("Mengirim email ke %s: Pendaftaran berhasil.\n", email)
+}
+
+func main(){
+	// Daftar email pengguna baru
+	emails := []string{"jeablue@gmail.com", "zezeablue@gmail.com", "pinkocean@gmail.com"}
+
+	// Mengirim email pemberitahuan ke setiap pengguna
+	fmt.Println("Mengirim email ke pengguna yang baru terdaftar:")
+	for _, email := range emails {
+		sendEmailNotification(email)
+	}
+}
+```
+
+#### Screenshot Output
+
+![Screenshot 2024-10-20 201135](https://github.com/user-attachments/assets/60a49cb3-18b0-45c2-ba62-e614a6ccdea7)
+
+#### Deskripsi Program
+Program ini bertujuan untuk mengirimkan notifikasi berupa pesan konfirmasi melalui email kepada pengguna yang baru terdaftar. Daftar alamat email disimpan dalam sebuah slice, dan program akan menggunakan sebuah fungsi sendEmailNotification untuk mencetak pesan pemberitahuan ke setiap alamat email dalam daftar tersebut.
+
+# 3. Soal study case
+Buatlah sebuah program yang menghitung hasil dari fungsi matematis menggunakan dua pendekatan: satu dengan menggunakan pengembalian nilai dan satu lagi dengan menggunakan referensi.
+
+#### Source code
+```go
+package main
+import "fmt"
+
+func f1(x, y int) float64 { // pass by value
+	var hasil float64
+	hasil = float64(2*x) - 0.5*float64(y) + 3.0
+	return hasil
+}
+
+func f2(x, y int, hasil *float64) { // pass by reference
+	*hasil = float64(2*x) - 0.5*float64(y) + 3.0
+}
+
+func main() {
+	var a, b int
+	var c float64
+
+	// take input for a and b
+	fmt.Print("Enter two integers: ")
+	fmt.Scan(&a, &b)
+
+	// call f2 to calculate and store the result in
+	f2(a, b, &c)
+
+	// print the result from f2
+	fmt.Println("Result from f2 (stored in c):", c)
+
+	// call f1 and print the result
+	resultF1 := f1 (b, a)
+	fmt.Println("Result from f1:", resultF1)
+}
+```
+
+#### Screenshot Output
+
+![Screenshot 2024-10-20 201833](https://github.com/user-attachments/assets/c8506ec6-e4db-4df3-acf4-93b5c58710f1)
+
+#### Deskripsi Program
+Program ini menghitung hasil rumus matematika menggunakan dua metode: **pass by value** dengan fungsi `f1` dan **pass by reference** dengan fungsi `f2`. Pengguna memasukkan dua bilangan, kemudian program menghitung dan menampilkan hasil dari kedua fungsi tersebut.
 
 ### III. UNGUIDED
 
@@ -108,10 +212,62 @@ contoh
 ![Screenshot 2024-10-13 184350](https://github.com/user-attachments/assets/e7b8cdd3-7871-44f0-a640-64edd27b4374)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import "fmt"
+
+var a, b, c, d int
+
+// Fungsi untuk menghitung faktorial dari bilangan n
+func faktorial(n int) int {
+	hasil := 1
+	// Loop untuk menghitung faktorial, dimulai dari 1 hingga n
+	for i := 1; i <= n; i++ {
+		hasil = hasil * i
+	}
+	return hasil
+}
+
+// Fungsi untuk menghitung permutasi P(n, r) = n! / (n-r)!
+func permutasi(n, r int) int {
+	return faktorial(n) / faktorial(n-r)
+}
+
+// Fungsi untuk menghitung kombinasi C(n, r) = n! / (r! * (n-r)!)
+func kombinasi(n, r int) int {
+	return faktorial(n) / (faktorial(r) * faktorial(n-r))
+}
+
+func main() {
+
+	fmt.Print("Masukkan input = ")
+	fmt.Scan(&a, &b, &c, &d)
+
+	if a >= c && b >= d {
+		// Baris pertama: Permutasi dan Kombinasi a terhadap c
+		fmt.Printf("%d, %d\n", permutasi(a, c), kombinasi(a, c))
+
+		// Baris kedua: Permutasi dan Kombinasi b terhadap d
+		fmt.Printf("%d, %d\n", permutasi(b, d), kombinasi(b, d))
+	} else {
+		fmt.Println("Syarat tidak terpenuhi: a harus >= c dan b harus>=d")
+	}
+}
+```
 
 #### Screenshot Output
 
+![Screenshot 2024-10-20 202253](https://github.com/user-attachments/assets/d1cf7bd4-3a77-46ad-a21a-141c2677f268)
+
 #### Deskripsi Program
+Program ini ditulis dalam bahasa Go untuk menghitung permutasi dan kombinasi berdasarkan empat bilangan bulat yang dimasukkan pengguna: `a`, `b`, `c`, dan `d`. 
+
+Jika `a` lebih besar atau sama dengan `c` dan `b` lebih besar atau sama dengan `d`, program akan menghitung dan menampilkan permutasi dan kombinasi untuk pasangan `(a, c)` dan `(b, d)`. Jika syarat tidak terpenuhi, program akan menampilkan pesan kesalahan. Program ini menggabungkan fungsi faktorial, permutasi, dan kombinasi dalam satu aplikasi.
 
 # 2. Soal study case
 Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan soal paling banyak dalam waktu paling singkat adalah pemenangnya.
@@ -127,9 +283,117 @@ Astusi menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam
 
 #### Source Code
 
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF1106
+
+package main
+
+import (
+    "fmt"
+)
+
+// Struct untuk menyimpan data peserta
+type Peserta struct {
+    nama      string
+    waktu     [8]int
+    soalBenar int
+    totalWaktu int
+}
+
+// Prosedur untuk input jumlah peserta
+func inputJumlahPeserta() int {
+    var n int
+    fmt.Print("Jumlah Peserta: ")
+    fmt.Scan(&n)
+    return n
+}
+
+// Prosedur untuk input data peserta
+func inputDataPeserta(nomorPeserta int) Peserta {
+    var peserta Peserta
+    
+    // Input nama peserta
+    fmt.Printf("\nNama peserta %d: ", nomorPeserta+1)
+    fmt.Scan(&peserta.nama)
+    
+    // Input waktu pengerjaan
+    fmt.Print("Waktu Pengerjaan Soal (8 soal): ")
+    for j := 0; j < 8; j++ {
+        fmt.Scan(&peserta.waktu[j])
+    }
+    
+    return peserta
+}
+
+// Prosedur untuk menghitung total soal yang dikerjakan dan total waktu
+func hitungSkor(waktu [8]int, soal *int, totalWaktu *int) {
+    *soal = 0
+    *totalWaktu = 0
+    for i := 0; i < 8; i++ {
+        if waktu[i] <= 300 { // jika waktu pengerjaan kurang dari 300 menit, soal selesai
+            *soal++
+            *totalWaktu += waktu[i] // hanya tambahkan waktu soal yang selesai
+        }
+    }
+}
+
+// Prosedur untuk menentukan pemenang
+func tentukanPemenang(peserta Peserta, pemenangSekarang *Peserta) {
+    if peserta.soalBenar > pemenangSekarang.soalBenar || 
+       (peserta.soalBenar == pemenangSekarang.soalBenar && peserta.totalWaktu < pemenangSekarang.totalWaktu) {
+        *pemenangSekarang = peserta
+    }
+}
+
+// Prosedur untuk menampilkan hasil akhir
+func tampilkanHasil(pemenang Peserta) {
+    fmt.Printf("\nNama pemenang: %s\n", pemenang.nama)
+    fmt.Printf("Jumlah soal yang selesai: %d\n", pemenang.soalBenar)
+    fmt.Printf("Total waktu yang dihabiskan: %d menit\n", pemenang.totalWaktu)
+}
+
+func main() {
+    // Input jumlah peserta
+    n := inputJumlahPeserta()
+    
+    // Inisialisasi data pemenang sementara
+    pemenang := Peserta{
+        soalBenar: -1,
+        totalWaktu: 1000,
+    }
+    
+    // Proses setiap peserta
+    for i := 0; i < n; i++ {
+        // Input data peserta
+        peserta := inputDataPeserta(i)
+        
+        // Hitung skor peserta
+        hitungSkor(peserta.waktu, &peserta.soalBenar, &peserta.totalWaktu)
+        
+        // Tentukan pemenang sementara
+        tentukanPemenang(peserta, &pemenang)
+    }
+    
+    // Tampilkan hasil akhir
+    tampilkanHasil(pemenang)
+}
+```
 #### Screenshot Output
 
+![Screenshot 2024-10-20 211215](https://github.com/user-attachments/assets/0720b6a7-73b6-48d6-9ff3-fac3d0116552)
+
 #### Deskripsi Program
+Program ini menentukan pemenang dalam kompetisi pemrograman berdasarkan jumlah soal yang diselesaikan dan waktu total yang dihabiskan. Program bekerja dengan cara berikut:
+
+1. **Input Jumlah Peserta**: Meminta jumlah peserta kompetisi.
+2. **Input Data Peserta**: Memasukkan nama dan waktu pengerjaan untuk 8 soal setiap peserta.
+3. **Hitung Skor**: Menghitung jumlah soal yang diselesaikan dalam waktu kurang dari atau sama dengan 300 menit dan total waktu yang dihabiskan.
+4. **Tentukan Pemenang**: Menentukan pemenang berdasarkan soal yang paling banyak diselesaikan, dan jika jumlah soal sama, memilih berdasarkan waktu total tercepat.
+5. **Tampilkan Hasil**: Menampilkan nama pemenang, jumlah soal yang diselesaikan, dan waktu total yang dihabiskan.
+
+Program ini menggunakan struktur `Peserta` untuk menyimpan data peserta dan memproses setiap peserta satu per satu.
 
 # 3. Soal study case
 Skiena dan Ravilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah 1/2n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah:
@@ -143,7 +407,113 @@ Keluaran terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak d
 ![Screenshot 2024-10-19 084112](https://github.com/user-attachments/assets/65adf438-4685-414e-a70b-25b5706705f8)
 
 #### Source Code
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF1106
 
+package main
+
+import (
+	"fmt"
+)
+
+// Prosedur untuk input bilangan
+func inputBilangan() int {
+	var n int
+	fmt.Print("Bilangan: ")
+	fmt.Scan(&n)
+	return n
+}
+
+// Prosedur untuk validasi input
+func validasiInput(n int) bool {
+	if n <= 0 || n >= 1000000 {
+		fmt.Println("Nilai harus positif dan kurang dari 1000000.")
+		return false
+	}
+	return true
+}
+
+// Prosedur untuk menghitung bilangan berikutnya dalam deret
+func hitungBilanganBerikutnya(n int) int {
+	if n%2 == 0 {
+		return n / 2
+	}
+	return 3*n + 1
+}
+
+// Prosedur untuk menyimpan deret dalam slice
+func buatDeret(n int) []int {
+	deret := make([]int, 0)
+	deret = append(deret, n)
+
+	for n != 1 {
+		n = hitungBilanganBerikutnya(n)
+		deret = append(deret, n)
+	}
+
+	return deret
+}
+
+// Prosedur untuk mencetak deret
+func cetakDeret(deret []int) {
+	fmt.Print("Suku dan deret: ")
+	for i, nilai := range deret {
+		if i == len(deret)-1 {
+			fmt.Printf("%d", nilai)
+		} else {
+			fmt.Printf("%d ", nilai)
+		}
+	}
+	fmt.Println()
+}
+
+// Prosedur untuk analisis deret
+func analisisDeret(deret []int) {
+	panjangDeret := len(deret)
+	nilaiTerbesar := deret[0]
+
+	for _, nilai := range deret {
+		if nilai > nilaiTerbesar {
+			nilaiTerbesar = nilai
+		}
+	}
+
+	fmt.Printf("\nAnalisis Deret:\n")
+	fmt.Printf("Panjang deret: %d\n", panjangDeret)
+	fmt.Printf("Nilai terbesar dalam deret: %d\n", nilaiTerbesar)
+}
+
+func main() {
+	// Input bilangan
+	n := inputBilangan()
+
+	// Validasi input
+	if validasiInput(n) {
+		// Buat deret
+		deret := buatDeret(n)
+
+		// Cetak deret
+		cetakDeret(deret)
+
+		// Tampilkan analisis deret
+		analisisDeret(deret)
+	}
+}
+```
 #### Screenshot Output
 
+
+![Screenshot 2024-10-20 211438](https://github.com/user-attachments/assets/0baf6039-8de7-4d3b-bd9e-c70c53317fcb)
+
 #### Deskripsi Program
+Program ini menghitung dan menganalisis deret bilangan menggunakan aturan Collatz conjecture. Program terdiri dari beberapa prosedur untuk:
+
+1. **Input bilangan**: Meminta input bilangan positif.
+2. **Validasi input**: Memastikan bilangan valid (positif dan kurang dari 1.000.000).
+3. **Membuat deret**: Menghitung deret berdasarkan aturan 3n + 1.
+4. **Mencetak deret**: Menampilkan deret yang dihasilkan.
+5. **Analisis deret**: Menampilkan panjang deret dan nilai terbesar.
+
+Fungsi utama (`main`) menjalankan langkah-langkah ini secara berurutan.
