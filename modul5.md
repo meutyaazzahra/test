@@ -1,7 +1,7 @@
 <h1 align="center">LAPORAN PRAKTIKUM</h1>
 <h2 align="center">ALGORITMA DAN PEMROGRAMAN 2</h2>
 
-<h3 align="center">MODUL 5</h3>
+<h3 align="center">MODUL 6</h3>
 <h4 align="center">REKURSIF</h4>
 
 <p align="center">
@@ -27,7 +27,7 @@
 
 ### I. DASAR TEORI
 
-### 5.1 Pengantar Rekursif
+### 6.1 Pengantar Rekursif
 Pada modul-modul sebelumnya sudah dijelaskan bahwa suatu subprogram baik fungsi atau prosedur bisa memanggil subprogram lainnya. Hal ini tidak menutup kemungkinan bahwa subprogram yang dipanggil adalah dirinya sendiri. Dalam pemrograman teknik ini dikenal dengan istilah rekursif. Rekursif secara sederhana dapat diartikan sebagai cara menyelesaikan suatu masalah dengan cara menyelesaikan sub-masalah yang identik dari masalah utama. Sebagai contoh perhatikan prosedur cetak berikut ini.
 
 ![Screenshot 2024-10-31 082115](https://github.com/user-attachments/assets/fb640804-fbcf-4b7d-bd73-dbedcabc0e8f)
@@ -61,7 +61,7 @@ Perhatikan modifikasi program di atas dengan menukar posisi baris 10 dan 11, men
 - Recursive-case adalah kondisi dimana proses pemanggilan dirinya sendiri dilakukan. Kondisi recursive-case adalah komplemen atau negasi dari base-case.
 - Setiap algoritma rekursif selalu memiliki padanan dalam bentuk algoritma interatif.
 
-### 5.2 Komponen Rekursif
+### 6.2 Komponen Rekursif
 
 Algoritma rekursif terdiri dari dua komponen utama:
 
@@ -101,7 +101,8 @@ import "fmt"
 
 // Fungsi untuk mencetak bilangan dari n hingga 1
 func cetakMundur(n int) {
-	if n -- 1 {
+	if n == 1 {
+		fmt.Println(n)
 		return
 	}
 	fmt.Print(n, " ")
@@ -118,7 +119,11 @@ func main() {
 ```
 # Screenshot Output
 
+![Screenshot 2024-11-03 192957](https://github.com/user-attachments/assets/12f6c47e-afbe-42b4-8f34-6669f8ca6954)
+
 # Deskripsi Program
+
+Program Go ini mencetak bilangan dari *n* hingga 1 menggunakan fungsi rekursif `cetakMundur`. Pengguna memasukkan nilai *n*, lalu program menampilkan urutan mundur dari *n* hingga 1.
 
 # 2. Soal study Case
 # Source Code
@@ -128,22 +133,27 @@ package main
 import "fmt"
 
 // Fungsi untuk menghitung penjumlahan 1 hingga n
-func jumlahRekursif(n int) int {
-	if n -- 1 {
+func jumlahRekursi(n int) int {
+	if n == 1 {
 		return 1
 	}
-	return n + jumlahRekursif(n-1)
+	return n + jumlahRekursi(n-1)
 }
 
 func main() {
 	var n int
-	fmt.Print("Masukkan nilai n untuk penjumlahan 1 hingga n : ")
+	fmt.Print("Masukkan nilai n untuk penjumlahan 1 hingga n: ")
 	fmt.Scanln(&n)
-	fmt.Println("Hasil penjumlahan:", jumlahRekursif(n))
+	fmt.Println("Hasil penjumlahan:", jumlahRekursi(n))
 }
 ```
 # Screenshot Output
+
+![Screenshot 2024-11-03 193338](https://github.com/user-attachments/assets/5bc38c80-70d1-4b0f-b963-31e2a399d2bb)
+
 # Deskripsi Program
+
+Program Go ini menghitung penjumlahan dari 1 hingga *n* menggunakan fungsi rekursif `jumlahRekursi`. Pengguna memasukkan nilai *n*, dan program menampilkan hasil penjumlahannya.
 
 # 3. Soal study Case
 # Source Code
@@ -152,9 +162,9 @@ package main
 
 import "fmt"
 
-// Fungsi untuk mencari 2 pangkat n
+// Fungsi untuk mencari 2 pangkal n
 func pangkatDua(n int) int {
-	if n -- 0 {
+	if n == 0 {
 		return 1
 	}
 	return 2 * pangkatDua(n-1)
@@ -168,18 +178,23 @@ func main() {
 }
 ```
 # Screenshot Output
+
+![Screenshot 2024-11-03 193609](https://github.com/user-attachments/assets/f22999d8-50de-4252-b74c-243430697170)
+
 # Deskripsi Program
+
+Program Go ini menghitung 2 pangkat *n* secara rekursif. Pengguna memasukkan nilai *n*, dan program menampilkan hasilnya.
 
 # 4. Soal study Case
 # Source Code
 ```go
-package enam
+package main
 
 import "fmt"
 
 // Fungsi untuk menghitung faktorial n!
 func faktorial(n int) int {
-	if n -- 0 || n -- 1 {
+	if n == 0 || n == 1 {
 		return 1
 	}
 	return n * faktorial(n-1)
@@ -189,12 +204,16 @@ func main() {
 	var n int
 	fmt.Print("Masukkan nilai n untuk mencari faktorial n!: ")
 	fmt.Scanln(&n)
-	fmt.Println("Hasil faktorial dari", n, ":", faktorial(n))
+	fmt.Println("Hasil faktorial dari", n, ":",faktorial(n))
 }
 ```
 # Screenshot Output
 
+![Screenshot 2024-11-03 193904](https://github.com/user-attachments/assets/fa4f6e98-e132-4789-8b42-582defc1f35a)
+
 # Deskripsi Program
+
+Program Go ini menghitung faktorial *n* secara rekursif. Pengguna memasukkan nilai *n*, dan program menampilkan hasilnya.
 
 ### III. UNGUIDED
 
@@ -375,7 +394,6 @@ func main() {
 
 # Deskripsi Program
 
-
 Program ini mencetak barisan bilangan secara rekursif yang menurun dari n ke 1 dan kemudian naik kembali ke n. Pengguna memasukkan nilai n, dan program menampilkan barisan angka tersebut.
 
 # 5. Soal study Case
@@ -416,7 +434,6 @@ func cetakGanjil(i int, n int) {
 ![Screenshot 2024-10-31 215509](https://github.com/user-attachments/assets/9e2c0654-0665-4883-a4ba-913cd95e74a2)
 
 # Deskripsi Program
-
 
 Program ini mencetak barisan bilangan ganjil dari 1 hingga bilangan N menggunakan rekursi. Pengguna memasukkan bilangan positif N, dan program menampilkan bilangan ganjil secara bertahap hingga mencapai atau mendekati N.
 
@@ -461,6 +478,5 @@ func main() {
 ![Screenshot 2024-10-31 215724](https://github.com/user-attachments/assets/aad485ae-5507-4e60-b11f-7172cb38262b)
 
 # Deskripsi Program
-
 
 Program ini menghitung hasil perpangkatan menggunakan rekursi. Pengguna memasukkan bilangan dasar x dan pangkat y, lalu program menampilkan hasil x pangkat y.
