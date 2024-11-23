@@ -155,11 +155,128 @@ Sehingga melalui algoritma diatas, identitas mahasiswa dapat diperoleh, misalnya
 
 # 1. Soal study Case
 # Source Code
+```go
+package main
+
+import "fmt"
+
+// Mendeklarasikan tipe data array arrInt dengan panjang 2023
+type arrInt [2023]int
+
+// Fungsi untuk mencari indeks elemen terkecil dalam array
+func terkecil(tabInt arrInt, n int) int {
+    var idx int = 0  // idx menyimpan indeks elemen terkecil
+    var j int = 1
+    for j < n {
+        if tabInt[idx] > tabInt[j] {
+            idx = j  // Simpan indeks j jika elemen di indeks j lebih kecil
+        }
+        j = j + 1
+    }
+    return idx
+}
+
+// Fungsi main untuk menguji fungsi terkecil
+func main() {
+    var n int
+    var tab arrInt
+
+    // Meminta input jumlah elemen array
+    fmt.Print("Masukkan jumlah elemen (maks 2023): ")
+    fmt.Scan(&n)
+
+    // Validasi input jumlah elemen
+    if n < 1 || n > 2023 {
+        fmt.Println("Jumlah elemen harus antara 1 dan 2023.")
+        return
+    }
+
+    // Memasukkan elemen-elemen array
+    fmt.Println("Masukkan elemen-elemen array:")
+    for i := 0; i < n; i++ {
+        fmt.Print("Elemen ke-", i+1, ": ")
+        fmt.Scan(&tab[i])
+    }
+
+    // Memanggil fungsi terkecil untuk menemukan indeks elemen terkecil
+    idxMin := terkecil(tab, n)
+
+    // Menampilkan nilai dan indeks terkecil
+    fmt.Println("Nilai terkecil dalam array adalah:", tab[idxMin], "pada indeks:", idxMin)
+}
+```
+
 # Screenshot Output
+
 # Deskripsi Program
 
 # 2. Soal study Case
 # Source Code
+```go
+package main
+
+import "fmt"
+
+// Definisi struct mahasiswa dengan atribut nama, nim, kelas, jurusan, dan ipk
+type mahasiswa struct {
+	nama, nim, kelas, jurusan string
+	ipk                       float64
+}
+
+// Definisi tipe data array mahasiswa dengan kapasitas maksimal 2023
+type arrMhs [2023]mahasiswa
+
+// Fungsi untuk mencari IPK tertinggi dalam array mahasiswa
+func ipk(T arrMhs, n int) float64 {
+	var tertinggi float64 = T[0].ipk
+	var j int = 1
+	for j < n {
+		if tertinggi < T[j].ipk {
+			tertinggi = T[j].ipk
+		}
+		j = j + 1
+	}
+	return tertinggi
+}
+
+// Fungsi main untuk mengisi data mahasiswa dan mencari IPK tertinggi
+func main() {
+	var n int
+	var dataMhs arrMhs
+
+	// Meminta input jumlah mahasiswa
+	fmt.Print("Masukkan jumlah mahasiswa (maks 2023): ")
+	fmt.Scan(&n)
+
+	// Validasi jumlah mahasiswa yang dimasukkan
+	if n < 1 || n > 2023 {
+		fmt.Println("Jumlah mahasiswa harus antara 1 dan 2023.")
+		return
+	}
+
+	// Mengisi data mahasiswa
+	for i := 0; i < n; i++ {
+		fmt.Printf("\nMasukkan data mahasiswa ke-%d\n", i+1)
+		fmt.Print("Nama: ")
+		fmt.Scan(&dataMhs[i].nama)
+		fmt.Print("NIM: ")
+		fmt.Scan(&dataMhs[i].nim)
+		fmt.Print("Kelas: ")
+		fmt.Scan(&dataMhs[i].kelas)
+		fmt.Print("Jurusan: ")
+		fmt.Scan(&dataMhs[i].jurusan)
+		fmt.Print("IPK: ")
+		fmt.Scan(&dataMhs[i].ipk)
+	}
+
+	// Mencari dan menampilkan IPK tertinggi
+	tertinggi := ipk(dataMhs, n)
+	fmt.Printf("\nIPK tertinggi dari %d mahasiswa adalah: %.2f\n", n, tertinggi)
+
+	
+}
+```
+
 # Screenshot Output
 # Deskripsi Program
 
