@@ -208,6 +208,8 @@ func main() {
 
 # Screenshot Output
 
+![image](https://github.com/user-attachments/assets/0c21fd95-c573-4a63-bffd-54d82b280e0a)
+
 # Deskripsi Program
 
 # 2. Soal study Case
@@ -278,6 +280,9 @@ func main() {
 ```
 
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/acef8828-03a8-4328-81e9-615f1e6c277b)
+
 # Deskripsi Program
 
 ### III. UNGUIDED
