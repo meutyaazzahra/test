@@ -211,6 +211,7 @@ func main() {
 ![image](https://github.com/user-attachments/assets/0c21fd95-c573-4a63-bffd-54d82b280e0a)
 
 # Deskripsi Program
+Program ini mencari nilai terkecil dalam array dan indeksnya. Pengguna memasukkan jumlah elemen (maksimal 2023) dan nilai-nilainya. Fungsi `terkecil` digunakan untuk menemukan indeks elemen terkecil, yang kemudian ditampilkan bersama nilainya.
 
 # 2. Soal study Case
 # Source Code
@@ -284,6 +285,7 @@ func main() {
 ![image](https://github.com/user-attachments/assets/acef8828-03a8-4328-81e9-615f1e6c277b)
 
 # Deskripsi Program
+Program ini nyari **IPK tertinggi** dari data mahasiswa. Isi nama, NIM, kelas, jurusan, sama IPK mereka, terus program bakal ngecek siapa yang paling pintar. Hasilnya? Langsung ditampilkan IPK tertingginya. 
 
 ### III. UNGUIDED
 # 1. Soal study Case
@@ -294,8 +296,61 @@ Masukan terdiri dari sekumpulan bilangan yang mana bilangan pertama adalah bilan
 Keluaran terdirfi dari dua buah bilangan rill yang menyatakan berat kelinci terkecil dan terbesar
 
 # Source Code
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import "fmt"
+
+func main() {
+	// Kapasitas array
+	const kapasitas = 1000
+	var beratKelinci [kapasitas]float64
+
+	// Input jumlah kelinci
+	var N int
+	fmt.Print("Masukkan jumlah anak kelinci: ")
+	fmt.Scan(&N)
+
+	// Validasi jumlah kelinci
+	if N < 1 || N > kapasitas {
+		fmt.Println("Jumlah kelinci harus antara 1 dan 1000.")
+		return
+	}
+
+	// Input berat kelinci
+	for i := 0; i < N; i++ {
+		fmt.Printf("Masukkan berat kelinci ke-%d: ", i+1)
+		fmt.Scan(&beratKelinci[i])
+	}
+
+	// Mencari berat terkecil dan terbesar
+	beratTerkecil := beratKelinci[0]
+	beratTerbesar := beratKelinci[0]
+
+	for i := 1; i < N; i++ {
+		if beratKelinci[i] < beratTerkecil {
+			beratTerkecil = beratKelinci[i]
+		}
+		if beratKelinci[i] > beratTerbesar {
+			beratTerbesar = beratKelinci[i]
+		}
+	}
+
+	fmt.Printf("Berat kelinci terkecil: %.2f\n", beratTerkecil)
+	fmt.Printf("Berat kelinci terbesar: %.2f\n", beratTerbesar)
+}
+```
+
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/63db4dde-0114-4d5d-aba5-a8ce0543325d)
+
 # Deskripsi Program
+Program ini menentukan berat terkecil dan terbesar dari sejumlah anak kelinci. Pengguna memasukkan jumlah kelinci (maksimal 1000) dan berat masing-masing kelinci. Program memvalidasi input, mencari berat terkecil dan terbesar melalui perulangan, lalu mencetak hasilnya.
 
 # 2. Soal study Case
 Sebuah program digunakan untuk tarif ikan yang akan dijual ke pasar. Program ini menggunakan array dengan kapasitas 1000 untuk menampung data berat ikan yang akan dijual.
@@ -304,8 +359,85 @@ Masukan terdiri dari dua baris, yang mana baris pertama terdiri dari dua bilanga
 
 Keluaran terdiri dari dua baris. Baris pertama adalah kumpulan bilangan rill yang menyatakan total berat ikan di setiap wadah (jumlah wadah tergantung pada nilai x dan y, urutan ikan yang dimasukkan ke dalam wadah sesuai urutan pada masukan baris ke-2). Baris kedua adalah sebuah bilangan rill yang menyatakan berat rata-rata aikan di setiap wadah.
 # Source Code
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import "fmt"
+
+func main() {
+	// Kapasitas array
+	const kapasitas = 1000
+	var beratIkan [kapasitas]float64
+
+	// Input jumlah ikan dan wadah
+	var x, y int
+	fmt.Print("Masukkan jumlah ikan (x) dan jumlah ikan per wadah (y): ")
+	fmt.Scan(&x, &y)
+
+	// Validasi jumlah ikan
+	if x < 1 || x > kapasitas || y < 1 {
+		fmt.Println("Jumlah ikan harus antara 1 dan 1000, dan jumlah ikan per wadah harus lebih dari 0.")
+		return
+	}
+
+	// Input berat ikan
+	fmt.Println("Masukkan berat ikan:")
+	for i := 0; i < x; i++ {
+		fmt.Printf("Berat ikan ke-%d: ", i+1)
+		fmt.Scan(&beratIkan[i])
+	}
+
+	// Menghitung total berat ikan di setiap wadah
+	var totalBeratPerWadah []float64
+	var jumlahIkanDiWadah int
+	var totalBerat float64
+
+	for i := 0; i < x; i++ {
+		totalBerat += beratIkan[i]
+		jumlahIkanDiWadah++
+
+		// Jika sudah mencapai jumlah ikan per wadah, simpan total berat dan reset
+		if jumlahIkanDiWadah == y || i == x-1 {
+			totalBeratPerWadah = append(totalBeratPerWadah, totalBerat)
+			totalBerat = 0
+			jumlahIkanDiWadah = 0
+		}
+	}
+
+	// Output total berat ikan di setiap wadah
+	fmt.Println("Total berat ikan di setiap wadah:")
+	for _, total := range totalBeratPerWadah {
+		fmt.Printf("%.2f ", total)
+	}
+	fmt.Println()
+
+	// Menghitung dan menampilkan berat rata-rata ikan di setiap wadah
+	var totalRataRata float64
+	for _, total := range totalBeratPerWadah {
+		totalRataRata += total
+	}
+
+	// Menghitung jumlah wadah yang digunakan
+	jumlahWadah := len(totalBeratPerWadah)
+
+	if jumlahWadah > 0 {
+		rataRata := totalRataRata / float64(jumlahWadah)
+		fmt.Printf("Berat rata-rata ikan di setiap wadah: %.2f\n", rataRata)
+	} else {
+		fmt.Println("Tidak ada wadah yang digunakan.")
+	}
+}
+```
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/201592ce-e16d-4f21-ba68-f446bc065b68)
+
 # Deskripsi Program
+Program ini menghitung total berat ikan dalam setiap wadah serta berat rata-rata ikan di setiap wadah. Pengguna memasukkan jumlah ikan, kapasitas ikan per wadah, dan berat masing-masing ikan. Program memvalidasi input, membagi ikan ke wadah sesuai kapasitas, menghitung total berat setiap wadah, dan menampilkan berat rata-rata. Jika jumlah ikan tidak valid, program memberikan pesan kesalahan.
 
 # 3. Soal study Case
 Pos Pelayanan Terpadu (Posyandu) sebagai tempat pelayanan kesehatan perlu mencatat data berat balita (dalam kg). Petugas akan memasukkan data tersebut ke dalam arrat. Dari data yang diperoleh akan dicari berat balita terkecil, terbesar, dan reratanya.
@@ -329,15 +461,93 @@ function rerata(arrBerat arrBalita) real {
 
 Perhatikan sesi interaksi pada contoh berikut ini
 
-Masukan banyak data berat balita: 4
-Masukan berat balita ke-1: 5.3
-Masukan berat balita ke-2: 6.2
-Masukan berat balita ke-3: 4.1
-Masukan berat balita ke-4: 9.9
-Berat balita minimum: 4.10 kg
-Berat balita maksimum: 9.90 kg
-Rata-rata berat balita: 6.38 kg
+
+| **No** | **Berat Balita (kg)** |  
+|--------|-----------------------|  
+| 1      | 5.3                   |  
+| 2      | 6.2                   |  
+| 3      | 4.1                   |  
+| 4      | 9.9                   |  
+
+**Hasil Perhitungan:**  
+- **Berat Minimum:** 4.10 kg  
+- **Berat Maksimum:** 9.90 kg  
+- **Rata-rata Berat Balita:** 6.38 kg  
 
 # Source Code
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import "fmt"
+
+type arrBalita [100]float64
+
+// Fungsi untuk menghitung berat minimum dan maksimum
+func hitungMinMax(arrBerat arrBalita, bMin, bMax *float64, n int) {
+	*bMin = arrBerat[0]
+	*bMax = arrBerat[0]
+
+	for i := 1; i < n; i++ {
+		if arrBerat[i] < *bMin {
+			*bMin = arrBerat[i]
+		}
+		if arrBerat[i] > *bMax {
+			*bMax = arrBerat[i]
+		}
+	}
+}
+
+// Fungsi untuk menghitung rata-rata berat balita
+func rerata(arrBerat arrBalita, n int) float64 {
+	total := 0.0
+	for i := 0; i < n; i++ {
+		total += arrBerat[i]
+	}
+	return total / float64(n)
+}
+
+func main() {
+	var beratBalita arrBalita
+	var n int
+
+	// Input banyak data berat balita
+	fmt.Print("Masukan banyak data berat balita: ")
+	fmt.Scan(&n)
+
+	// Validasi jumlah data
+	if n < 1 || n > 100 {
+		fmt.Println("Jumlah data harus antara 1 dan 100.")
+		return
+	}
+
+	// Input berat balita
+	for i := 0; i < n; i++ {
+		fmt.Printf("Masukan berat balita ke-%d: ", i+1)
+		fmt.Scan(&beratBalita[i])
+	}
+
+	// Variabel untuk menyimpan berat minimum dan maksimum
+	var beratMin, beratMax float64
+
+	// Hitung berat minimum dan maksimum
+	hitungMinMax(beratBalita, &beratMin, &beratMax, n)
+
+	// Hitung rata-rata berat balita
+	rataRata := rerata(beratBalita, n)
+
+	// Output hasil
+	fmt.Printf("Berat balita minimum: %.2f kg\n", beratMin)
+	fmt.Printf("Berat balita maksimum: %.2f kg\n", beratMax)
+	fmt.Printf("Rata-rata berat balita: %.2f kg\n", rataRata)
+}
+```
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/167c6004-8894-4337-8457-7dcdbefc9da7)
+
 # Deskripsi Program
+Program ini menghitung berat minimum, maksimum, dan rata-rata dari data berat balita yang dimasukkan.
