@@ -1,7 +1,7 @@
 <h1 align="center">LAPORAN PRAKTIKUM</h1>
 <h2 align="center">ALGORITMA DAN PEMROGRAMAN 2</h2>
 
-<h3 align="center">MODUL 12</h3>
+<h3 align="center">MODUL 12 & 13</h3>
 <h4 align="center">PENGURUTAN DATA</h4>
 
 <p align="center">
