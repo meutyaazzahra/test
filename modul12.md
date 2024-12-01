@@ -385,7 +385,107 @@ Petunjuk:
 - Atau, tetap disimpan dalam satu array, diurutkan secara keseluruhan. Tetapi pada waktu pencetakan, mulai dengan mencetak semua nilai ganjil lebih dulu, kemudian setelah selesaii cetaklah semua nilai genapnya.
 
 # Source Code
+
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import "fmt"
+
+// Fungsi untuk mengurutkan array dengan insertion sort
+func insertionSort(arr []int, asc bool) {
+	n := len(arr)
+	for i := 1; i < n; i++ {
+		key := arr[i]
+		j := i - 1
+		// Untuk pengurutan menaik
+		if asc {
+			for j >= 0 && arr[j] > key {
+				arr[j+1] = arr[j]
+				j--
+			}
+		} else { // Untuk pengurutan menurun
+			for j >= 0 && arr[j] < key {
+				arr[j+1] = arr[j]
+				j--
+			}
+		}
+		arr[j+1] = key
+	}
+}
+
+// Fungsi untuk menampilkan nomor rumah berdasarkan daerah
+func processDaerah(i, m int) ([]int, []int) {
+	arr := make([]int, m)
+	// Input nomor rumah kerabat untuk setiap daerah
+	fmt.Printf("Masukkan %d nomor rumah kerabat untuk daerah ke-%d: ", m, i+1)
+	for j := 0; j < m; j++ {
+		fmt.Scan(&arr[j])
+	}
+
+	// Memisahkan nomor ganjil dan genap
+	var odd, even []int
+	for _, num := range arr {
+		if num%2 == 0 {
+			even = append(even, num)
+		} else {
+			odd = append(odd, num)
+		}
+	}
+	return odd, even
+}
+
+// Fungsi untuk menampilkan hasil terurut
+func printSortedResults(i int, odd, even []int) {
+	// Mengurutkan nomor rumah
+	insertionSort(odd, true)   // urutkan ganjil secara menaik
+	insertionSort(even, false) // urutkan genap secara menurun
+
+	// Output nomor rumah yang terurut
+	fmt.Printf("\nNomor rumah terurut untuk daerah ke-%d:\n", i+1)
+
+	// Tampilkan nomor ganjil
+	for _, num := range odd {
+		fmt.Printf("%d ", num)
+	}
+
+	// Tampilkan nomor genap
+	for _, num := range even {
+		fmt.Printf("%d ", num)
+	}
+	fmt.Println()
+}
+
+// Fungsi utama program
+func main() {
+	var n int
+	// Input jumlah daerah kerabat
+	fmt.Print("Masukkan jumlah daerah kerabat (n): ")
+	fmt.Scan(&n)
+
+	// Proses untuk setiap daerah
+	for i := 0; i < n; i++ {
+		var m int
+		// Input jumlah rumah kerabat untuk setiap daerah
+		fmt.Printf("Masukkan jumlah rumah kerabat di daerah ke-%d (m): ", i+1)
+		fmt.Scan(&m)
+
+		// Ambil nomor rumah untuk daerah tersebut
+		odd, even := processDaerah(i, m)
+
+		// Menampilkan hasil terurut untuk daerah tersebut
+		printSortedResults(i, odd, even)
+	}
+}
+```
+
 # Screenshot Output
+
+![Screenshot 2024-12-01 173753](https://github.com/user-attachments/assets/e1e1b2f0-1953-4b96-afb5-2e62057eeb27)
+
 # Deskripsi Program
 
 # 2. Soal study Case
@@ -408,7 +508,87 @@ Petunjuk:
 untuk setiap data bukan 0 (dan bukan marker -5313541) simpan ke dalam array dan setiap kali menemukan bilangan 0, urutkanlah data yang sudah tersimpan dengan menggunakan metode insertion sort dan ambil mediannya.
 
 # Source Code
+
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
+// Fungsi untuk melakukan selection sort
+func selectionSort(arr []int) {
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		// Cari elemen terkecil di bagian yang belum terurut
+		minIdx := i
+		for j := i + 1; j < n; j++ {
+			if arr[j] < arr[minIdx] {
+				minIdx = j
+			}
+		}
+		// Tukar elemen terkecil yang ditemukan dengan elemen pertama
+		arr[i], arr[minIdx] = arr[minIdx], arr[i]
+	}
+}
+
+// Fungsi untuk menghitung median dari array yang sudah terurut
+func hitungMedian(arr []int) float64 {
+	n := len(arr)
+	if n%2 == 0 {
+		// Jika jumlah elemen genap, median adalah rata-rata dari dua nilai tengah
+		return float64(arr[n/2-1]+arr[n/2]) / 2.0
+	}
+	// Jika jumlah elemen ganjil, median adalah elemen tengah
+	return float64(arr[n/2])
+}
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+
+	// Membaca seluruh input sebagai satu baris
+	fmt.Println("Masukkan angka yang dipisahkan dengan spasi (akhiri dengan -5313):")
+	scanner.Scan()
+	line := scanner.Text()
+
+	// Memisahkan input ke dalam bagian-bagian
+	parts := strings.Split(line, " ")
+	var data []int
+
+	for _, part := range parts {
+		num, err := strconv.Atoi(part)
+		if err != nil {
+			fmt.Println("Input tidak valid, harap masukkan angka bulat saja.")
+			return
+		}
+
+		if num == -5313 {
+			// Akhir dari input
+			break
+		} else if num == 0 {
+			// Urutkan data dan hitung median
+			selectionSort(data)
+			median := hitungMedian(data)
+			fmt.Printf("%.0f\n", median)
+		} else {
+			// Tambahkan angka ke array data
+			data = append(data, num)
+		}
+	}
+}
+```
+
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/eb9c0124-e209-4b4e-a07b-5b0ba81a9a8c)
+
 # Deskripsi Program
 
 # 3. Soal study Case
