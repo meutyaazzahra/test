@@ -269,6 +269,8 @@ func main() {
 
 # Deskripsi Program
 
+Program ini mengurutkan nomor rumah kerabat di beberapa daerah menggunakan **Selection Sort**. Pengguna memasukkan jumlah daerah dan nomor rumah untuk tiap daerah. Setelah diurutkan, hasilnya ditampilkan untuk masing-masing daerah secara terpisah. Contohnya, jika input nomor rumah adalah `4, 9, 1`, outputnya akan menjadi `1, 4, 9`.
+
 # 2. Soal study Case
 
 Buatlah sebuah program yang digunakan untuk membaca data integer seperti contoh yang diberikan dibawah ini, kemudian diurutkan (menggunakan metode insertion sort) dan memeriksa apakah data yang terurut berjarak sama terhadap data sebelumnya.
@@ -364,6 +366,18 @@ func main() {
 
 # Deskripsi Program
 
+Program ini memeriksa apakah selisih antar elemen dalam array memiliki pola tetap setelah diurutkan.
+
+### Fungsi Utama:
+1. **Input Data**: Pengguna memasukkan deretan angka positif. Input berakhir saat angka negatif dimasukkan.  
+2. **Pengurutan**: Array diurutkan secara menaik menggunakan **Insertion Sort**.  
+3. **Pemeriksaan Selisih**: Program memeriksa apakah selisih antar elemen dalam array setelah diurutkan bersifat konstan.  
+
+### Output:
+- Menampilkan array yang sudah diurutkan.  
+- Jika selisih konstan, program menampilkan nilai selisihnya.  
+- Jika selisih tidak konstan, program menampilkan pesan "Data berjarak tidak tetap".
+  
 ### III. UNGUIDED
 
 # 1. Soal study Case
@@ -488,6 +502,14 @@ func main() {
 
 # Deskripsi Program
 
+Program ini mengurutkan nomor rumah kerabat di tiap daerah. 
+
+- **Input**: Jumlah daerah, jumlah rumah per daerah, dan nomor rumah.  
+- **Proses**: 
+  - Nomor ganjil diurutkan secara menaik.  
+  - Nomor genap diurutkan secara menurun.  
+- **Output**: Nomor rumah terurut ditampilkan per daerah.
+- 
 # 2. Soal study Case
 
 Kompetisi pemrograman yang baru saja berlalu diikuti oleh 17 tim dari berbagai perguruan tinggi ternama. Dalam kompetisi tersebut, setiap tim berlomba untuk menyelesaikan sebanyak mungkin problem yang diberikan. Dari 13 problem yang diberikam, ada satu problem yang menarik. Problem tersebut mudah dipahami, hampir semua tim mencoba untuk menyelesaikannya, tetapi hanya 3 tim yang berhasil. Apa sih problemnya?
@@ -513,6 +535,7 @@ untuk setiap data bukan 0 (dan bukan marker -5313541) simpan ke dalam array dan 
 // Meutya Azzahra Efendi
 // 2311102166
 // IF-11-06
+
 package main
 
 import (
@@ -591,6 +614,12 @@ func main() {
 
 # Deskripsi Program
 
+Program ini menghitung **median** dari angka-angka yang diinput pengguna. 
+
+- Input angka dipisah dengan spasi, diakhiri dengan `-5313`.
+- Setiap input `0`, data diurutkan (Selection Sort), lalu median dihitung dan ditampilkan.
+- Program berhenti jika menemukan `-5313`.
+
 # 3. Soal study Case
 
 Sebuah perpustakaan digunakan untuk mengelola data buku di dalam suatu perpustakaan. Misalnhya terdefinisi struct dan array seperti berikut ini:
@@ -635,5 +664,170 @@ procedure CariBuku(in pustaka: DaftarBuku; n: integer; r: integer);
         rating seperti itu". Catatan: Gunakan pencarian biner/belah dua. }
 ```
 # Source Code
+
+```go
+// Meutya Azzahra Efendi
+// 2311102166
+// IF-11-06
+
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
+const nMax = 10000
+
+type Buku struct {
+	id, judul, penulis, penerbit string
+	eksemplar, tahun, rating     int
+}
+
+type DaftarBuku [nMax]Buku
+
+// Fungsi untuk membaca input dari pengguna
+func bacaInput(prompt string) string {
+	fmt.Print(prompt)
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	return scanner.Text()
+}
+
+// Prosedur untuk mendaftarkan buku ke perpustakaan
+func DaftarkanBuku(pustaka *DaftarBuku, n *int) {
+	jumlah, _ := strconv.Atoi(bacaInput("Masukkan jumlah buku yang ingin didaftarkan: "))
+	*n = jumlah
+
+	for i := 0; i < *n; i++ {
+		fmt.Printf("\nMasukkan data buku ke-%d (id, judul, penulis, penerbit, eksemplar, tahun, rating):\n", i+1)
+		input := bacaInput("")
+		data := strings.Split(input, " ")
+		if len(data) != 7 {
+			fmt.Println("Input tidak valid. Harap masukkan 7 data sesuai format.")
+			i-- // Ulangi iterasi untuk input yang salah
+			continue
+		}
+		pustaka[i] = Buku{
+			id:        data[0],
+			judul:     data[1],
+			penulis:   data[2],
+			penerbit:  data[3],
+			eksemplar: atoi(data[4]),
+			tahun:     atoi(data[5]),
+			rating:    atoi(data[6]),
+		}
+	}
+}
+
+// Prosedur untuk menampilkan buku dengan rating tertinggi
+func CetakTerfavorit(pustaka DaftarBuku, n int) {
+	if n == 0 {
+		fmt.Println("\nTidak ada data buku.")
+		return
+	}
+
+	terfavorit := pustaka[0]
+	for i := 1; i < n; i++ {
+		if pustaka[i].rating > terfavorit.rating {
+			terfavorit = pustaka[i]
+		}
+	}
+
+	fmt.Println("\nBuku Terfavorit:")
+	tampilkanBuku(terfavorit)
+}
+
+// Prosedur untuk mengurutkan buku berdasarkan rating secara descending
+func UrutBuku(pustaka *DaftarBuku, n int) {
+	for i := 1; i < n; i++ {
+		key := pustaka[i]
+		j := i - 1
+		for j >= 0 && pustaka[j].rating < key.rating {
+			pustaka[j+1] = pustaka[j]
+			j--
+		}
+		pustaka[j+1] = key
+	}
+}
+
+// Prosedur untuk mencetak 5 buku dengan rating tertinggi
+func CetakTerbaru(pustaka DaftarBuku, n int) {
+	fmt.Println("\n5 Buku Dengan Rating Tertinggi:")
+	count := min(5, n)
+	for i := 0; i < count; i++ {
+		fmt.Printf("%d. %s (Rating: %d)\n", i+1, pustaka[i].judul, pustaka[i].rating)
+	}
+}
+
+// Prosedur untuk mencari buku berdasarkan ratingnya
+func CariBuku(pustaka DaftarBuku, n, r int) {
+	fmt.Printf("\nMencari Buku dengan Rating %d:\n", r)
+	found := false
+	for i := 0; i < n; i++ {
+		if pustaka[i].rating == r {
+			found = true
+			tampilkanBuku(pustaka[i])
+		}
+	}
+	if !found {
+		fmt.Println("\nTidak ada buku dengan rating tersebut.")
+	}
+}
+
+// Fungsi untuk mencetak data buku
+func tampilkanBuku(buku Buku) {
+	fmt.Printf("Judul    : %s\n", buku.judul)
+	fmt.Printf("Penulis  : %s\n", buku.penulis)
+	fmt.Printf("Penerbit : %s\n", buku.penerbit)
+	fmt.Printf("Tahun    : %d\n", buku.tahun)
+	fmt.Printf("Eksemplar: %d\n", buku.eksemplar)
+	fmt.Printf("Rating   : %d\n", buku.rating)
+}
+
+// Fungsi pembantu untuk konversi string ke int
+func atoi(s string) int {
+	val, _ := strconv.Atoi(s)
+	return val
+}
+
+// Fungsi pembantu untuk mendapatkan nilai minimum
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func main() {
+	var pustaka DaftarBuku
+	var n int
+
+	DaftarkanBuku(&pustaka, &n)
+	CetakTerfavorit(pustaka, n)
+	UrutBuku(&pustaka, n)
+	CetakTerbaru(pustaka, n)
+
+	ratingCari := atoi(bacaInput("\nMasukkan rating yang ingin dicari: "))
+	CariBuku(pustaka, n, ratingCari)
+}
+```
+
 # Screenshot Output
+
+![image](https://github.com/user-attachments/assets/ba7a7d11-6e0a-4b04-96fd-1a181d0afc36)
+
 # Deskripsi Program
+
+Program ini adalah **sistem manajemen perpustakaan sederhana** yang dibuat dengan bahasa Go. Fungsinya meliputi:
+
+- **Daftarkan Buku**: Memasukkan data buku ke sistem.
+- **Buku Terfavorit**: Menampilkan buku dengan rating tertinggi.
+- **Urutkan Buku**: Mengurutkan buku berdasarkan rating (descending).
+- **5 Buku Terbaik**: Menampilkan hingga 5 buku dengan rating tertinggi.
+- **Cari Buku**: Mencari buku berdasarkan rating.
+
+Data buku disimpan dalam array `DaftarBuku`, dengan atribut seperti `id`, `judul`, `penulis`, `penerbit`, `eksemplar`, `tahun`, dan `rating`. Program berinteraksi dengan pengguna melalui input/output di terminal.
